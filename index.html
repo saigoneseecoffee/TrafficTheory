@@ -45,7 +45,7 @@
     var found = res.filter(Boolean);
     if (!found.length) { document.getElementById('msg').textContent = 'Chưa có phiên bản nào. Hãy up file v1.html.'; return; }
     var latest = Math.max.apply(null, found);
-    if (!showList) { location.replace('v' + latest + '.html' + location.hash); return; }
+    if (!showList) { location.replace('v' + latest + '.html' + location.search + location.hash); return; }
     document.getElementById('msg').textContent = 'Chọn phiên bản để chơi.';
     document.getElementById('list').innerHTML = found.sort(function (a, b) { return b - a; }).map(function (n) {
       return '<a href="v' + n + '.html">V' + n + (n === latest ? '<span>mới nhất</span>' : '') + '</a>';
